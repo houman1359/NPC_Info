@@ -1,5 +1,6 @@
 This is a matlab toolbox to compute mutual information between two variables using nonparametric copula.
 
+----------------------------------------------------------------------------------------------------------------------
 
 Load the sample bivariate data:
 
@@ -33,6 +34,7 @@ opts.plot=0;                                 %% 0=no iteration plot (default), 1
 
 Computing I(X(:,1);X(:,2)):
 
+----------------------------------------------------------------------------------------------------------------------
 
 First we build the vine structure
 
@@ -42,16 +44,19 @@ range(1:2,2)=max(X(:,1:2))+1e-10;
 
 [vine]=NPC_prep_copula(X(:,[1 2]),opts.type,range([1 2],:));
 
+----------------------------------------------------------------------------------------------------------------------
 
 The the bandwidths of copula can be fitted on the data:
 
 [ density_X , ~ , copula , ~ , ~ ] = NPC_Fit_vCopula(vine,X(1,:),opts.bw,1,0,opts.knots_fit,opts.parallel);
 
+----------------------------------------------------------------------------------------------------------------------
 
 The copula can be estimated over the grid and over the data points:
 
 [ ~ , ~ , copula , ~ , ~ ] = NPC_Fit_vCopula(vine,X(1,:),opts.bw,-1,copula,opts.knots_est,opts.parallel);
 
+----------------------------------------------------------------------------------------------------------------------
 
 Finally the mutual information can be estimated by calling:
 
