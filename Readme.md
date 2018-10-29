@@ -42,17 +42,17 @@ range(1:2,2)=max(X(:,1:2))+1e-10;
 
 The the bandwidths of copula can be fitted on the data:
 
-[density_X,~,copula,~,~] = NPC_Fit_vCopula(vine,X(1,:),opts.bw,1,0,opts.knots_fit,opts.parallel);
+[ density_X , ~ , copula , ~ , ~ ] = NPC_Fit_vCopula(vine,X(1,:),opts.bw,1,0,opts.knots_fit,opts.parallel);
 
 
 The copula can be estimated over the grid and over the data points:
 
-[~,~,copula,~,~] = NPC_Fit_vCopula(vine,X(1,:),opts.bw,-1,copula,opts.knots_est,opts.parallel);
+[ ~ , ~ , copula , ~ , ~ ] = NPC_Fit_vCopula(vine,X(1,:),opts.bw,-1,copula,opts.knots_est,opts.parallel);
 
 
 Finally the mutual information can be estimated by calling:
 
-[info,~,~,~] = NPC_kernelvineinfo(vine,copula,opts)
+[ info , ~ , ~ , ~ ] = NPC_kernelvineinfo(vine,copula,opts)
 
 
 
