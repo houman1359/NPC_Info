@@ -1,0 +1,41 @@
+ Volume in drive C has no label.
+ Volume Serial Number is 90B6-8457
+
+ Directory of C:\Users\Nicole\Desktop\NPC_Info
+
+09/23/2018  02:24 PM    <DIR>          .
+09/23/2018  02:24 PM    <DIR>          ..
+09/23/2018  11:48 AM               222 bw_tll.m
+09/23/2018  11:48 AM            43,579 demo_info_entropy.m
+09/23/2018  11:48 AM            60,453 demo_KerCopula.m
+09/23/2018  11:48 AM             3,787 DenseNaive.m
+09/23/2018  11:48 AM             1,972 DenseNaiveMat.c
+09/23/2018  11:48 AM             8,463 DenseNaiveMat.mexa64
+09/23/2018  11:48 AM             1,972 DenseNaiveMatwin.c
+09/23/2018  11:48 AM            17,920 DenseNaiveMatwin.mexw64
+09/23/2018  11:48 AM               112 FI.m
+09/23/2018  11:48 AM            13,834 Fit_vCopula.m
+09/23/2018  11:48 AM             8,135 fminsearchbnd.m
+09/23/2018  11:48 AM            11,105 func_tll.m
+09/23/2018  11:48 AM             1,317 GRID_Bands.m
+09/23/2018  11:48 AM             5,480 kde.m
+09/23/2018  11:48 AM             1,756 kerncopccdfinv.m
+09/23/2018  11:48 AM             2,722 kerncoprnd.m
+09/23/2018  11:48 AM             1,238 kernelcdf.m
+09/23/2018  11:48 AM               504 kernelcdfinv.m
+09/23/2018  11:48 AM             5,428 KernelCop.m
+09/23/2018  11:48 AM               709 kernelpdf.m
+09/23/2018  11:48 AM            47,788 kernelvineinfo.m
+09/23/2018  11:48 AM             7,300 kernel_all.m
+09/23/2018  11:48 AM             1,518 Kern_LL.m
+09/23/2018  02:24 PM                 0 list.txt
+09/23/2018  11:48 AM               793 LocLik.m
+09/23/2018  11:48 AM               294 loclik_fit.m
+09/23/2018  11:48 AM               552 make_point_vector.m
+09/23/2018  11:48 AM             2,453 MISE.m
+09/23/2018  11:48 AM             1,179 mk_grid.m
+09/23/2018  11:48 AM               565 predict_response.m
+09/23/2018  11:48 AM             2,552 prep_copula.m
+09/23/2018  11:48 AM             1,948 README.md
+              32 File(s)        257,650 bytes
+               2 Dir(s)  176,812,568,576 bytes free
