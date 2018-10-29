@@ -42,10 +42,10 @@ License:
 
 Copyright (C) 2018 Houman Safaai
 
-The NPC Toolbox is free software; you can redistribute it and/or
+The NPC Toolbox is a free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License as published
 by the Free Software Foundation; either version 3 of the License, or (at
-your option) any later version. The following paper should be cited:
+your option) any later version. The following paper should be cited upon using the method or codes presented here:
 
 Safaai, Houman, et al. "Information Estimation Using Non-Parametric Copulas." arXiv preprint arXiv:1807.08018 (2018).
 
