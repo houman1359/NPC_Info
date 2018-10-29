@@ -38,6 +38,10 @@ Finally the mutual information can be estimated by calling:
 
 
 
+
+
+
+----------------------------------------------------------------------------------------------------------------------
 License:
 
 Copyright (C) 2018 Houman Safaai
@@ -56,3 +60,4 @@ Public License for more details.
 
 You should have received a copy of the GNU General Public License along
 with this program; if not, see <http://www.gnu.org/licenses/>.
+
