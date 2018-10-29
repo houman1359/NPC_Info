@@ -1,4 +1,7 @@
-The sample bivariate data:
+This is a matlab toolbox to compute mutual information between two variables using nonparametric copula.
+
+
+Load the sample bivariate data:
 
 load('NPC_X.mat')
 
@@ -59,6 +62,7 @@ Finally the mutual information can be estimated by calling:
 
 
 
+----------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------
 License:
 
