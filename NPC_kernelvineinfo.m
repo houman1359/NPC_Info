@@ -82,9 +82,10 @@ while (stderr1 >= erreps | stderr2 >= erreps | stderr_tot >= erreps) & k<kmin
                 X(:,hh)=vines.margins{hh}.ker;
             end
                         
-            D=NPC_kerncoprnd(copula,X,cases,vines);            
+            [D du]=NPC_kerncoprnd(copula,X,cases,vines);            
             
-            [~,~,~,~,p_cop] = NPC_Fit_vCopula(vines,D,[],-1,copula,opts.knots_fit,parallel);
+            %[~,~,~,~,p_cop] = NPC_Fit_vCopula(vines,D,[],-1,copula,opts.knots_fit,parallel);
+            [~,~,~,~,p_cop] = NPC_Fit_vCopula(vines,du,[],-4,copula,opts.knots_fit,parallel);
 
             
             log2pp=log2(p_cop);
@@ -299,7 +300,7 @@ while (stderr1 >= erreps | stderr2 >= erreps | stderr_tot >= erreps) & k<kmin
                     
                     for sor=1:round(numel(y_vectorT)/NNN)
                         
-                        disp(['condition = ', num2str(j),' , sor = ',num2str(sor)])
+                        %disp(['condition = ', num2str(j),' , sor = ',num2str(sor)])
                         
                         if sor*NNN<numel(y_vectorT)
                             y_vector=y_vectorT((sor-1)*NNN+1:sor*NNN);

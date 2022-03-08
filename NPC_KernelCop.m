@@ -95,7 +95,7 @@ if fitt==1
             options=optimset('MaxIter',50,'Display','off','TolX',1e-2,'TolFun',1e-2,'MaxFunEvals',50);
             bw1=fminsearchbnd(@(x) NPC_MISE(x,data,Grid,points.u(1,:),xd,afk,dd,ddT,bw0,0,NORM,0,parallel),bw0,bw1*0.8,bw1*1.2,options);
             bw=abs(bw1);
-            disp('Opt=LL2')
+            %disp('Opt=LL2')
         end
         
         if strcmp(method_fit,'LL1')
@@ -104,7 +104,7 @@ if fitt==1
             options=optimset('MaxIter',50,'Display','off','TolX',1e-2,'TolFun',1e-2,'MaxFunEvals',50);
             bw1=fminbnd(@(x) NPC_MISE(x,data,Grid,points.u(1,:),xd,afk,dd,ddT,bw0,0,NORM,0,parallel),[bw1*0.8],[bw1*1.2],options);
              bw=abs(bw0*bw1);
-            disp('Opt=LL1')
+            %disp('Opt=LL1')
         end
         
     else

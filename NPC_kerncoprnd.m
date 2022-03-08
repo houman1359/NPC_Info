@@ -1,5 +1,5 @@
 
-function ura = NPC_kerncoprnd(copula,data,cases,vine,tim)
+function [ura u] = NPC_kerncoprnd(copula,data,cases,vine,tim)
 
 %%%%%%% this is from 5.15 and Algorithm 5.3 of the following book
 % % % Simulating Copulas: Stochastic Models, Sampling Algorithms and Applications
@@ -13,7 +13,7 @@ mig=min(GRID_u(:));
 
 d = length(copula);
 w = rand(cases,d);
-w=(mag-mig)*(w-min(w))./(max(w)-min(w))+mig;
+w=(mag-mig)*((w-min(w))./(max(w)-min(w)))+mig;
 
 
 v = zeros(cases,d,d);
@@ -26,11 +26,32 @@ for i = 2:d
         str=i-k+1;
         method=vine.METH{tr,str};
         
+        %workerID = get(getCurrentTask(),'ID');
+        %save(['crashData/',num2str(workerID),'kerncopccdfinv.mat'])
+        
         v(:,k,i)=NPC_kerncopccdfinv(copula{tr,str},[v(:,k,k) v(:,k+1,i)],method);%copula{tr,str}.fit.F.ccdf([v(:,tr,1) v(:,tr,str)]);
     end
 end
 
 u=squeeze(v(:,1,:));
+
+
+
+%%%%%%%% this part is to make the sampling continous
+% uu=u*0;
+% U=sort(unique(GRID_u(:)));
+% dU=diff(U);
+% for i=1:size(u,2)
+%     U=sort(unique(u(:,i)));
+%     for y=2:numel(U)
+%         G=find(u(:,i)==U(y));
+%         D=U(y)-U(y-1);
+%         uu(G,i)=U(y-1)+D*rand(numel(G),1);
+%     end
+% end
+% u=uu;
+
+
 
 
 %%%%%% from CDF to samples
@@ -42,6 +63,7 @@ u(u(:,i)<=min(copula{i,1}.MarginG.p),i)=min(copula{i,1}.MarginG.p)+1e-10.*abs(ra
 
 if strcmp(vine.families{i,1},'discrete')
     ura(:,i)=interp1(copula{i,1}.MarginG.p,copula{i,1}.MarginG.s,u(:,i),'nearest');
+%    ura(:,i)=interp1(copula{i,1}.MarginG.p,copula{i,1}.MarginG.s,u(:,i),'linear');
 else
     ura(:,i)=interp1(copula{i,1}.MarginG.p,copula{i,1}.MarginG.s,u(:,i),'linear');
 end

@@ -1,7 +1,4 @@
-
 %%%%%% Fitting kernel vine copula and computing the joint density funciton
-
-
 function [p,pdata,Copula,PDF,p_copula] = NPC_Fit_vCopula(vine,x,METH_fit,fit,lfit,knots,parallel)
 
 if nargin < 6
@@ -68,7 +65,7 @@ for i = 1:d
 end
 
 for i = 1:d  
-    disp(['pdf ',num2str(i)])
+%     disp(['pdf ',num2str(i)])
     [G0{i},Mar_G{i}]=NPC_kernelcdf(vine.margins{i}.ker,x(:,i),parG{i});
     [S0{i},Mar_S{i}]=NPC_kernelpdf(vine.margins{i}.ker,vine.margins{i}.iscont,x(:,i),parS{i});
     [T0{i},Mar_T{i}]=NPC_kernelcdf(vine.margins{i}.ker,vine.margins{i}.ker,parT{i});
@@ -79,12 +76,18 @@ for i = 1:d
 end
 
 for i = 1:d
+    if fit~=-4
     Fp(:,1,i)=G0{i};
+    else
+    Fp(:,1,i)=x(:,i);
+    end    
     logf(:,1)=logf(:,1)+log(S0{i});
     logfdata(:,1)=logfdata(:,1)+log(P0{i});
     vine.theta{1,i}=T0{i};
 end
-
+if fit==-4
+    fit=-1;
+end
 clear G0 T0 S0
 
 DD=1;
@@ -100,7 +103,7 @@ for tr=1
             [G1p{str},G2p{str},CopC{str},Copf{str},G3p{str},G4p{str},Copul{str}]=NPC_KernelCop(knots,[vine.theta{tr,1} vine.theta{tr,str}],[vine.theta{tr,1}(1) vine.theta{tr,str}(1)],vine.METH{tr,str},METH_fit,0,1,parallel);
             logftr{str}=log(G2p{str});
             logfda{str}=log(G4p{str});
-            disp(['Fit copula -> ',num2str(tr),',',num2str(str),' , Time= ',num2str(toc)])
+            %disp(['Fit copula -> ',num2str(tr),',',num2str(str),' , Time= ',num2str(toc)])
         end
         
     else
@@ -111,7 +114,7 @@ for tr=1
             logftr{str}=log(G2p{str});
             logfda{str}=log(G4p{str});
             if no~=1
-                disp(['Eval copula -> ',num2str(tr),',',num2str(str)])
+                %disp(['Eval copula -> ',num2str(tr),',',num2str(str)])
             end
         end
     end
