@@ -8,6 +8,8 @@ load('NPC_X.mat')
 
 The parameters which can be selected in the copula fitting and information estimation are as follows:
 
+opts.Nrep=1;                                 %% number of data replications to be used in the information estimation. Nrep>1 will be helpful to recude the variability in the information estimation of discrete data due to the introduction of the non-informative noise in data with smaller samples.
+
 opts.bw='LL1';                               %% LL1 or LL2 bandwidth methods
 
 opts.knots_fit=100;                          %% number of bins used in estimating the copula 
@@ -38,11 +40,7 @@ Computing I(X(:,1);X(:,2)):
 
 First we build the vine structure
 
-range(1:2,1)=min(X(:,1:2))-1e-10;
-
-range(1:2,2)=max(X(:,1:2))+1e-10;
-
-[vine]=NPC_prep_copula(X(:,[1 2]),opts.type,range([1 2],:));
+[vine]=NPC_prep_copula(X(:,[1 2]),opts.type,opts.Nrep);
 
 ----------------------------------------------------------------------------------------------------------------------
 
